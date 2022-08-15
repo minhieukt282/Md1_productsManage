@@ -1,0 +1,22 @@
+button{
+    text-align: center;
+    background: red;
+    border: 0.1px;
+    border-radius: 10%;
+    color: whitesmoke;
+    width: 50px;
+}
+
+body{
+    width: 500px;
+}
+tr:nth-child(2n+1){
+    background: sandybrown;
+}
+
+input{
+    width: 200px;
+}
+div{
+    margin-left: 100px;
+}
