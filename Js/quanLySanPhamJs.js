@@ -3,37 +3,39 @@ var listProduct = []
 function addProduct() {
     listProduct = JSON.parse(localStorage.getItem("Product")) ?? [];
     let product = document.getElementById("newProduct").value;
-    if (product)
+    if (product !== "")
         listProduct.push(product);
     localStorage.setItem("Product", JSON.stringify(listProduct));
     displayProduct();
+    document.getElementById("newProduct").value = "";
 }
 
 function editProduct(idEdit) {
     listProduct = JSON.parse(localStorage.getItem("Product")) ?? [];
     let editProduct = prompt("sua ten san pham");
     for (let i = 0; i < listProduct.length; i++) {
-        if (i = idEdit) {
+        if (i == idEdit) {
             listProduct[i] = editProduct;
             break;
         }
     }
     localStorage.setItem("Product", JSON.stringify(listProduct));
     displayProduct();
-
 }
 
 function delProduct(idDel) {
     listProduct = JSON.parse(localStorage.getItem("Product")) ?? [];
-    listProduct.splice(idDel, 1);
+    if (confirm("Are you sure???????"))
+        listProduct.splice(idDel, 1);
     localStorage.setItem("Product", JSON.stringify(listProduct));
     displayProduct();
 }
 
 function displayProduct() {
+    listProduct = JSON.parse(localStorage.getItem("Product")) ?? [];
     let i = 0;
     let count = listProduct.length;
-    var display = "<table border='0' width='500' cellspacing='0' cellpadding='3'>"
+    var display = "<table border='0' width='500' height='auto' cellspacing='0' cellpadding='3'>"
     for (i; i < listProduct.length; i++) {
         display += "<tr>"
         display = display + '<td style="width: 400px">' + listProduct[i] + "</td>";
